@@ -3,3 +3,8 @@
   height: 32px;
   float: left;
 }
+
+.home__avatar {
+  width: 300px;
+  height: 300px;
+}

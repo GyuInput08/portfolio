@@ -216,147 +216,197 @@
     </section>
 
     <!-- Work -->
-    <section id="work">
-      <h1>My Work</h1>
-      <h3>Project</h3>
-      <div class="work__categories">
-        <button class="category__btn">
-          All<span class="category__count">8</span>
-        </button>
-        <button class="category__btn">
-          Front-end<span class="category__count">3</span>
-        </button>
-        <button class="category__btn">
-          Back-end<span class="category__count">2</span>
-        </button>
-      </div>
+    <section id="work" class="section">
+      <div class="section__container">
+        <h1>My Work</h1>
+        <h3>Project</h3>
+        <div class="work__categories">
+          <button class="category__btn selected" data-filter="*">
+            All<span class="category__count">8</span>
+          </button>
+          <button class="category__btn" data-filter="front-end">
+            Front-end<span class="category__count">3</span>
+          </button>
+          <button class="category__btn" data-filter="back-end">
+            Back-end<span class="category__count">2</span>
+          </button>
+          <button class="category__btn" data-filter="design">
+            Design<span class="category__count">3</span>
+          </button>
+        </div>
 
-      <div class="work__projects">
-        <a
-          href="https://github.com/GyuInput08/Project_TreeEarth.git"
-          class="project"
-          target="blank"
-        >
-          <img
-            class="project__img"
-            src="imgss/projects/project6.png"
-            alt="TreeEarth"
-          /><!-- 이미지파일 교체! -->
-          <div class="project__description">
-            <h3>TreeEarth Site</h3>
-            <span>환경보호 캠페인 사이트</span>
-          </div>
-        </a>
-        <a
-          href="https://github.com/GyuInput08/portfolio.git"
-          class="project"
-          target="blank"
-        >
-          <img
-            class="project__img"
-            src="imgss/projects/project8.png"
-            alt="Portfolio"
-          />
-          <div class="project__description">
-            <h3>Portfolio Web Site</h3>
-            <span>HTML, CSS, JavaScript with Portfolio Web Site</span>
-          </div>
-        </a>
-        <a
-          href="https://github.com/GyuInput08/portfolio.git"
-          class="project"
-          target="blank"
-        >
-          <img
-            class="project__img"
-            src="imgss/projects/project6.png"
-            alt="project_etc1"
-          />
-          <div class="project__description">
-            <h3>Fresh Orange Site</h3>
-            <span>싱그러운 오렌지 플리마켓 사이트</span>
-          </div>
-        </a>
-        <a
-          href="https://github.com/GyuInput08/portfolio.git"
-          class="project"
-          target="blank"
-        >
-          <img
-            class="project__img"
-            src="imgss/projects/project3.png"
-            alt="project_etc2"
-          />
-          <div class="project__description">
-            <h3>Health Protector Site</h3>
-            <span>Smart Health Care App Site</span>
-          </div>
-        </a>
-        <a
-          href="https://github.com/GyuInput08/portfolio.git"
-          class="project"
-          target="blank"
-        >
-          <img
-            class="project__img"
-            src="imgss/projects/project4.png"
-            alt="project_etc3"
-          />
-          <div class="project__description">
-            <h3>Brand Shopping</h3>
-            <span>Get your brand and online Shopping</span>
-          </div>
-        </a>
-        <a
-          href="https://github.com/GyuInput08/Project_TreeEarth.git"
-          class="project"
-          target="blank"
-        >
-          <img
-            class="project__img"
-            src="imgss/projects/project5.png"
-            alt="project_etc4"
-          />
-          <div class="project__description">
-            <h3>Home Care Site</h3>
-            <span>스마트 홈 케어 시스템</span>
-          </div>
-        </a>
-        <a
-          href="https://github.com/GyuInput08/Project_TreeEarth.git"
-          class="project"
-          target="blank"
-        >
-          <img
-            class="project__img"
-            src="imgss/projects/project7.png"
-            alt="project_etc5"
-          />
-          <div class="project__description">
-            <h3>Weather I Site</h3>
-            <span>Today Weather App&Web Site</span>
-          </div>
-        </a>
-        <a
-          href="https://github.com/GyuInput08/portfolio.git"
-          class="project"
-          target="blank"
-        >
-          <img
-            class="project__img"
-            src="imgss/projects/project1.png"
-            alt="project_etc6"
-          />
-          <div class="project__description">
-            <h3>Youtube Site</h3>
-            <span>HTML, CSS with media query</span>
-          </div>
-        </a>
+        <div class="work__projects">
+          <a
+            href="https://github.com/GyuInput08/Project_TreeEarth.git"
+            class="project"
+            target="blank"
+            data-type="back-end"
+          >
+            <img
+              class="project__img"
+              src="imgss/projects/projectTree-5.png"
+              alt="TreeEarth"
+            />
+            <div class="project__description">
+              <h3>TreeEarth Site</h3>
+              <span>환경보호 캠페인 사이트</span>
+            </div>
+          </a>
+          <a
+            href="https://github.com/GyuInput08/portfolio.git"
+            class="project"
+            target="blank"
+            data-type="front-end"
+          >
+            <img
+              class="project__img"
+              src="imgss/projects/project8.png"
+              alt="Portfolio"
+            />
+            <div class="project__description">
+              <h3>Portfolio Web Site</h3>
+              <span>HTML, CSS, JavaScript with Portfolio Web Site</span>
+            </div>
+          </a>
+          <a
+            href="https://github.com/GyuInput08/portfolio.git"
+            class="project"
+            target="blank"
+            data-type="front-end"
+          >
+            <img
+              class="project__img"
+              src="imgss/projects/project6.png"
+              alt="project_etc1"
+            />
+            <div class="project__description">
+              <h3>Fresh Orange Site</h3>
+              <span>싱그러운 오렌지 플리마켓 사이트</span>
+            </div>
+          </a>
+          <a
+            href="https://github.com/GyuInput08/portfolio.git"
+            class="project"
+            target="blank"
+            data-type="front-end"
+          >
+            <img
+              class="project__img"
+              src="imgss/projects/project3.png"
+              alt="project_etc2"
+            />
+            <div class="project__description">
+              <h3>Health Protector Site</h3>
+              <span>Smart Health Care App Site</span>
+            </div>
+          </a>
+          <a
+            href="https://github.com/GyuInput08/portfolio.git"
+            class="project"
+            target="blank"
+            data-type="back-end"
+          >
+            <img
+              class="project__img"
+              src="imgss/projects/project4.png"
+              alt="project_etc3"
+            />
+            <div class="project__description">
+              <h3>Brand Shopping</h3>
+              <span>Get your brand and online Shopping</span>
+            </div>
+          </a>
+          <a
+            href="https://github.com/GyuInput08/Project_TreeEarth.git"
+            class="project"
+            target="blank"
+            data-type="design"
+          >
+            <img
+              class="project__img"
+              src="imgss/projects/project5.png"
+              alt="project_etc4"
+            />
+            <div class="project__description">
+              <h3>Home Care Site</h3>
+              <span>스마트 홈 케어 시스템</span>
+            </div>
+          </a>
+          <a
+            href="https://github.com/GyuInput08/Project_TreeEarth.git"
+            class="project"
+            target="blank"
+            data-type="design"
+          >
+            <img
+              class="project__img"
+              src="imgss/projects/project7.png"
+              alt="project_etc5"
+            />
+            <div class="project__description">
+              <h3>Weather I Site</h3>
+              <span>Today Weather App&Web Site</span>
+            </div>
+          </a>
+          <a
+            href="https://github.com/GyuInput08/portfolio.git"
+            class="project"
+            target="blank"
+            data-type="design"
+          >
+            <img
+              class="project__img"
+              src="imgss/projects/project1.png"
+              alt="project_etc6"
+            />
+            <div class="project__description">
+              <h3>Youtube Site</h3>
+              <span>HTML, CSS, JavaScript, Json</span>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- Testimonials -->
-    <section id="testimonials"></section>
+    <section id="testimonials">
+      <h1>Testimonials</h1>
+      <h3>See what they say about me</h3>
+      <div class="testimonials">
+        <div class="testimonial">
+          <img
+            src="imgss/testimonial/people2.jpg"
+            alt="people2"
+            class="testimonial__avatar"
+          />
+          <div class="testimonial__speech-bubble">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+              fuga libero nulla eveniet aperiam laborum, quis provident
+              quibusdam officiis reprehenderit, placeat neque perspiciatis vero
+              explicabo tempora, dignissimos accusantium inventore ducimus!
+            </p>
+            <p class="name"><a href="">Ellie</a> / Google</p>
+          </div>
+        </div>
+        <div class="testimonial">
+          <img
+            src="imgss/testimonial/people.png"
+            alt="people"
+            class="testimonial__avatar"
+          />
+          <div class="testimonial__speech-bubble">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+              fuga libero nulla eveniet aperiam laborum, quis provident
+              quibusdam officiis reprehenderit, placeat neque perspiciatis vero
+              explicabo tempora, dignissimos accusantium inventore ducimus!
+            </p>
+            <p class="name"><a href="">Jae</a> / Samsung</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Contact -->
     <section id="contact"></section>

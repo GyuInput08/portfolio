@@ -139,7 +139,7 @@ button {
 
 /* Home */
 #home {
-  background: url('imgss/home-background.png') center/cover no-repeat;
+  background: url('imgss/home-background1.png') center/cover no-repeat;
   padding: 40px;
   text-align: center;
 }
@@ -166,7 +166,7 @@ button {
   font-weight: var(--weight-bold);
   margin: 24px;
   padding: 8px 12px;
-  border: 2px solid var(--color-black);
+  border: 3px solid var(--color-black);
   border-radius: var(--size-border-radius);
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }

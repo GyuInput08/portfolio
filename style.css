@@ -13,6 +13,7 @@
   --color-yellow: #fff7d1;
   --color-orange: #feb546;
   --color-black: #000000;
+  --color-light-yellow: #fff9c4;
 
   /* Font size */
   --font-large: 48px;
@@ -47,8 +48,18 @@ a {
 }
 
 ul {
-  list-style: none;
   padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
 
 /* Typography */
@@ -78,6 +89,11 @@ p {
   font-weight: var(--weight-regular);
   color: var(--color-black);
   margin: 4px 0;
+}
+
+body,
+button {
+  font-family: 'Open Sans', sans-serif;
 }
 
 /* Navbar */
@@ -121,7 +137,36 @@ p {
   /* margin: 3px 0; */
 }
 
+/* Home */
+#home {
+  background: url('imgss/home-background.png') center/cover no-repeat;
+  padding: 40px;
+  text-align: center;
+}
+
 .home__avatar {
-  width: 300px;
-  height: 300px;
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  border: 2px solid var(--color-light-white);
+}
+
+.home__title {
+  color: var(--color-light-yellow);
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000; /* 폰트 테두리 */
+}
+.home__description {
+  color: var(--color-black);
+  font-size: 25px;
+}
+
+.home__contact {
+  color: var(--color-white);
+  font-size: var(--font-regular);
+  font-weight: var(--weight-bold);
+  margin: 24px;
+  padding: 8px 12px;
+  border: 2px solid var(--color-black);
+  border-radius: var(--size-border-radius);
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }

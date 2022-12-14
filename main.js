@@ -60,6 +60,43 @@ arrowUp.addEventListener('click', () => {
   scrollIntoView('#home');
 });
 
+// Projects ***
+// 클릭할 버튼을 감싸고 있는 카테고리 영역을 선택자로 지정
+const workBtnContainer = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
+// 버튼을 클릭하여 필터링할 각각의 요소들을 배열로 받아옴
+const projects = document.querySelectorAll('.project');
+// 카테고리 영역에서 현재 클릭 이벤트가 발생한 요소에 함수를 호출
+workBtnContainer.addEventListener('click', (e) => {
+  // 현재 이벤트가 발생한 요소의 데이터의 필터 값을 변수에 할당 -> 필터 값이 없다면 false가 반환되므로
+  // 값이 없다면 이벤트가 발생한 요소의 부모 노드의 데이터 필터 값을 변수에 할당함
+  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter; // data-filter값 받아오기
+  if (filter == null) {
+    // filter가 null이면 아무것도 받아오지 않음
+    return;
+  }
+  // console.log(filter);
+
+  // 프로젝트 애니메이션
+  projectContainer.classList.add('anim-out');
+  // Timeout이 되면 0.3초 뒤에 등록한 함수를 호출
+  setTimeout(() => {
+    // 배열에 저장된 필터링 될 요소들을 각각 불러옴
+    projects.forEach((project) => {
+      console.log(project.dataset.type);
+      if (filter === '*' || filter === project.dataset.type) {
+        // 필터 값이 모두 일치하면 true를 반환(필터 값이 필터링 될 요소와 데이터 타입이 자료형까지 일치하면 true를 반환)
+        project.classList.remove('invisible'); // 값이 일치한 요소들은 displqy: none이 포함된 클래스를 제거하여 보이게 해줌
+      } else {
+        // 값이 일치하지 않는 요소들은 displqy: none이 포함된 클래스를 생성해 안보이게 해줌
+        project.classList.add('invisible');
+      }
+    });
+    // 위에서 등록한 애니메이션(anim-out)을 없애줘야 함
+    projectContainer.classList.remove('anim-out');
+  }, 300);
+});
+
 // Navbar menu 선택 시 스크롤 기능 함수
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);

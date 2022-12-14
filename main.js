@@ -36,6 +36,16 @@ homeContactBtn.addEventListener('click', () => {
   scrollIntoView('#contact');
 });
 
+// Make home slowly fade to transparent as the window scrolls down
+const home = document.querySelector('.home__container');
+const homeHeight = home.getBoundingClientRect().height;
+document.addEventListener('scroll', () => {
+  // console.log(1 - window.scrollY / homeHeight);
+  // 1 - window.scrollY(0, 400, 800) / homeHeight(800) 값이 1이면 opacity 불투명, 0.5이면 반투명, 0이면 투명
+  home.style.opacity = 1 - window.scrollY / homeHeight;
+});
+
+// Navbar menu 선택 시 스크롤 기능 함수
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: 'smooth' });

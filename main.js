@@ -60,7 +60,7 @@ arrowUp.addEventListener('click', () => {
   scrollIntoView('#home');
 });
 
-// Projects ***
+// Projects
 // 클릭할 버튼을 감싸고 있는 카테고리 영역을 선택자로 지정
 const workBtnContainer = document.querySelector('.work__categories');
 const projectContainer = document.querySelector('.work__projects');
@@ -76,6 +76,14 @@ workBtnContainer.addEventListener('click', (e) => {
     return;
   }
   // console.log(filter);
+
+  // Remove selection from the previous item and select the new one - 이전에 선택된 클릭 요소를 없애고 새로 클릭된 요소를 지정
+  const active = document.querySelector('.category__btn.selected');
+  active.classList.remove('selected');
+  // 클릭된 target의 nodeName이 BUTTON이면 target 그대로 사용하고 아니면(span일 경우) parentNode을 지정
+  const target =
+    e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
+  target.classList.add('selected');
 
   // 프로젝트 애니메이션
   projectContainer.classList.add('anim-out');

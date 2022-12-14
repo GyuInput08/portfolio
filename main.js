@@ -27,7 +27,17 @@ navbarMenu.addEventListener('click', (event) => {
   // console.log(event.target.dataset.link); // 확인 log
   // const scrollTo = document.querySelector(link);
   // scrollTo.scrollIntoView({ behavior: 'smooth' });
+
+  // navbar menu를 선택하게 되면 toggle버튼 클래스를 없애 줌
+  navbarMenu.classList.remove('open');
+
   scrollIntoView(link);
+});
+
+// Navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+  navbarMenu.classList.toggle('open');
 });
 
 // Handle click on "Contact Me" button on home

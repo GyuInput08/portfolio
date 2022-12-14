@@ -45,6 +45,21 @@ document.addEventListener('scroll', () => {
   home.style.opacity = 1 - window.scrollY / homeHeight;
 });
 
+// Show "arrow up" button when scrolling down - 오른쪽 하단의 화살표 버튼 기능
+const arrowUp = document.querySelector('.arrow-up');
+document.addEventListener('scroll', () => {
+  if (window.scrollY > homeHeight / 2) {
+    arrowUp.classList.add('visible');
+  } else {
+    arrowUp.classList.remove('visible');
+  }
+});
+
+// Handle click on the "arrow-up" button - 하단 화살표 버튼 클릭시 상단(Home)으로 이동
+arrowUp.addEventListener('click', () => {
+  scrollIntoView('#home');
+});
+
 // Navbar menu 선택 시 스크롤 기능 함수
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);

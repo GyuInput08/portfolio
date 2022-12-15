@@ -14,6 +14,9 @@
   --color-orange: #feb546;
   --color-black: #000000;
   --color-light-yellow: #fff9c4;
+  --color-indigo: #7986cb;
+  /* --color-deep-purple: #9575cd; */
+  --color-deep-purple: #b39ddb;
 
   /* Font size */
   --font-large: 48px;
@@ -114,7 +117,7 @@ button {
 }
 
 #navbar.navbar--dark {
-  background-color: var(--color-pink);
+  background-color: var(--color-indigo);
   padding: 8px;
 }
 
@@ -125,6 +128,7 @@ button {
 .navbar__logo {
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
+  /* color: white; */
 }
 
 .navbar__menu__item {
@@ -138,12 +142,12 @@ button {
 
 .navbar__menu__item:hover {
   border-color: var(--color-white);
-  background-color: var(--color-dark-pink);
+  background-color: var(--color-blue);
 }
 
 .My-logo {
-  width: 53px;
-  height: 53px;
+  width: 50px;
+  height: 50px;
   float: left;
   /* margin: 3px 0; */
 }
@@ -159,7 +163,9 @@ button {
 
 /* Home */
 #home {
-  background: url('imgss/home-background1.png') center/cover no-repeat;
+  /* background: url('imgss/home-background1.png') center/cover no-repeat; */
+  /* background: url('imgss/home-background2.png') center/cover no-repeat; */
+  background: url('imgss/home-background6.png') center/cover no-repeat;
   padding: 40px;
   padding-top: 120px;
   text-align: center;
@@ -192,9 +198,14 @@ button {
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
 
+.home__contact:hover {
+  background-color: var(--color-pink);
+}
+
 /* Section common */
 .section {
   padding: 50px;
+  padding-top: 70px;
   text-align: center;
   margin: auto;
 }
@@ -327,6 +338,7 @@ button {
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
   padding: 8px 48px;
+  position: relative;
 }
 
 .work__categories {
@@ -353,9 +365,9 @@ button {
   height: 24px;
   display: inline-block;
   line-height: 24px;
-  position: relative;
+  position: absolute;
   top: -20px;
-  left: 4px;
+  right: 8px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
 }
@@ -475,7 +487,7 @@ button {
 
 /* Contact */
 #contact {
-  background-color: var(--color-pink);
+  background-color: var(--color-deep-purple);
 }
 
 .contact__title,
@@ -507,7 +519,7 @@ button {
   width: 70px;
   height: 70px;
   font-size: 50px;
-  background-color: var(--color-pink);
+  background-color: var(--color-indigo);
   color: var(--color-white);
   border-radius: 50%;
   opacity: 0;
@@ -522,13 +534,31 @@ button {
 
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
+  :root {
+    /* Font size */
+    --font-large: 30px;
+    --font-medium: 18px;
+    --font-regular: 16px;
+    --font-small: 14px;
+    --font-micro: 12px;
+  }
+
+  .My-logo {
+    width: 30px;
+    height: 30px;
+    float: left;
+  }
+
   .navbar__toggle-btn {
     display: block;
+    top: 16px;
+    right: 16px;
+    font-size: var(--font-medium);
   }
   #navbar {
     flex-direction: column;
     align-items: flex-start;
-    background-color: var(--color-pink);
+    background-color: var(--color-indigo);
   }
 
   #navbar.navbar--dark {
@@ -546,24 +576,66 @@ button {
     display: block;
   }
 
+  .section {
+    padding: 16px;
+    padding-top: 40px;
+  }
+
   .about__majors {
     flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 0px;
+  }
+
+  .job__logo {
+    width: 32px;
+    height: 32px;
   }
 
   .major {
-    margin: 38px;
+    margin: 30px;
   }
 
   .skillset {
     flex-direction: column;
   }
 
+  .category__btn {
+    margin: 4px 0;
+    width: 100%;
+  }
+
   .project {
     flex-grow: 1;
   }
 
+  .testimonial {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .testimonial__avatar {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
+  }
+
+  /* testimonial__avatar가 짝수일 때, 홀수일 때 */
+  .testimonial__avatar:nth-child(even),
+  .testimonial__avatar:nth-child(odd) {
+    margin: 0;
+    margin-bottom: 8px;
+  }
+
+  .testimonial__speech-bubble {
+    order: 1;
+  }
+
+  .arrow-up {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
+    right: 16px;
+    bottom: 16px;
   }
 }

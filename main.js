@@ -9,10 +9,10 @@ document.addEventListener('scroll', () => {
   //   console.log(`navbarHeight: ${navbarHeight}`); // 확인 log
   if (window.scrollY > navbarHeight) {
     // scrollY가 navbarHeight보다 크면
-    navbar.classList.add('navbar--dark'); // navbar가 어두워 지게
+    navbar.classList.add('navbar--dark'); // navbar가 어두워 지게(navbar가 나타나게)
   } else {
     // scrollY가 navbarHeight보다 작으면
-    navbar.classList.remove('navbar--dark'); // navbar--dark를 없앰
+    navbar.classList.remove('navbar--dark'); // navbar가 사라짐
   }
 });
 

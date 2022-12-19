@@ -32,6 +32,7 @@ navbarMenu.addEventListener('click', (event) => {
   navbarMenu.classList.remove('open');
 
   scrollIntoView(link);
+  selectNavItem(target);
 });
 
 // Navbar toggle button for small screen
@@ -115,8 +116,83 @@ workBtnContainer.addEventListener('click', (e) => {
   }, 300);
 });
 
+//-----메뉴 선택에 따른 Navbar menu item 활성화------------------------
+// 1. 모든 섹션 요소들과 메뉴아이템들을 가지고 온다
+// 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다
+// 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다
+
+// 1. 모든 섹션 요소들과 메뉴아이템들을 가지고 온다
+const sectionIds = [
+  '#home',
+  '#about',
+  '#skills',
+  '#work',
+  '#testimonials',
+  '#contact',
+];
+const sections = sectionIds.map((id) => document.querySelector(id));
+const navItems = sectionIds.map((id) =>
+  document.querySelector(`[data-link="${id}"]`)
+);
+// console.log(sections);
+// console.log(navItems);
+
+let selectedNavIndex = 0;
+let selectedNavItem = navItems[0]; // navItems에 있는 젤 첫번째 아이템 설정
+function selectNavItem(selected) {
+  selectedNavItem.classList.remove('active');
+  selectedNavItem = selected;
+  selectedNavItem.classList.add('active');
+}
+
 // Navbar menu 선택 시 스크롤 기능 함수
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: 'smooth' });
+  selectNavItem(navItems[sectionIds.indexOf(selector)]); // Contact Me 버튼과 arrow-up버튼 클릭시 Navbar메뉴 아이템 선택 활성화
 }
+
+// 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.3,
+};
+
+const observerCallback = (entries, observer) => {
+  entries.forEach((entry) => {
+    // console.log(entry.target);
+    // 각 메뉴에서 빠져나갈 때
+    if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+      const index = sectionIds.indexOf(`#${entry.target.id}`);
+      // entry.boundingClientRect.y가 - 좌표라면? => 스크롤링이 아래로 되어서 페이지가 올라옴
+      if (entry.boundingClientRect.y < 0) {
+        selectedNavIndex = index + 1;
+      } else {
+        // 페이지가 내려가는 경우라면(y가 +좌표라면)
+        selectedNavIndex = index - 1;
+      }
+    }
+  });
+};
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+sections.forEach((section) => observer.observe(section));
+
+window.addEventListener('wheel', () => {
+  // 스크롤이 제일 위에 있다면
+  if (window.scrollY === 0) {
+    selectedNavIndex = 0;
+    // 제일 위의 위치에서 현재 윈도우 창의 높이(제일 밑의 위치)를 + 했을 때,
+    // document페이지에 있는 전체적인 높이와 동일하다면
+  } else if (
+    // 여기서, 스크롤로 페이지 제일 아래로 내렸을 경우
+    // scrollY와 window창의 innerHeight 값을 더한값이 정확하게 일치 하지 않는 경우가 있음
+    //ex) document.body.clientHeight은 1270 일 수 있고, scrollY와 window창의 innerHeight 더한값은 1269.2 이렇게 소수점이 나올 수 있기 때문
+    // 즉, scrollY와 innerHeight 더한 값을 반올림 해주면 됨!
+    Math.round(window.screenY + window.innerHeight) >=
+    document.body.clientHeight
+  ) {
+    selectedNavIndex = navItems.length - 1;
+  }
+  selectNavItem(navItems[selectedNavIndex]);
+});

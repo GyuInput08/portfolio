@@ -1,5 +1,4 @@
-# portfolio
- Gyuin's Portfolio
+# Gyuin's Portfolio
 
 ### **포트폴리오 웹 사이트 Address : https://gyuinput08.github.io/portfolio/**         
 * **HTML, CSS, JavaScript 기반으로 동적 웹 사이트 구현**         

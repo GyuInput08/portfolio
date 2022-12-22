@@ -35,6 +35,7 @@
 
   /* Annimation */
   --animation-duration: 300ms;
+  --animation-duration-one: 200ms;
 }
 
 /* Universal tags */
@@ -190,6 +191,11 @@ button {
 .home__description {
   color: var(--color-black);
   font-size: 25px;
+}
+
+.home__description:hover {
+  color: #ff4081;
+  transition: all var(--animation-duration-one) linear;
 }
 
 .home__contact {

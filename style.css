@@ -17,6 +17,7 @@
   --color-indigo: #7986cb;
   /* --color-deep-purple: #9575cd; */
   --color-deep-purple: #b39ddb;
+  --color-deep-pink: #ff4081;
 
   /* Font size */
   --font-large: 48px;
@@ -194,7 +195,7 @@ button {
 }
 
 .home__description:hover {
-  color: #ff4081;
+  color: var(--color-deep-pink);
   transition: all var(--animation-duration-one) linear;
 }
 
